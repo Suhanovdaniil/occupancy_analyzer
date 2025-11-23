@@ -30,28 +30,22 @@ class Config:
     PREDICTIONS_DIR = os.path.join(RESULTS_PATH, 'predictions')
     SUBMISSIONS_DIR = os.path.join(RESULTS_PATH, 'submissions')
     
-    # УЛУЧШЕННЫЕ НАСТРОЙКИ МОДЕЛИ
-    MODEL_NAME = 'models/occupancy_detector/weights/best.pt'  # Используем более крупную модель
+    # НАСТРОЙКИ МОДЕЛИ
+    MODEL_NAME = 'yolov8m.pt'  
     IMG_SIZE = 960
     BATCH_SIZE = 4  # Уменьшить если не хватает памяти
-    EPOCHS = 100    # Увеличиваем количество эпох
-    LEARNING_RATE = 0.0001 # Уменьшаем learning rate
-    PATIENCE = 10   # Увеличиваем patience
+    EPOCHS = 200    
+    LEARNING_RATE = 0.0001 
+    PATIENCE = 30   
     
     # НАСТРОЙКИ ОБУЧЕНИЯ
     DEVICE = '0' if torch.cuda.is_available() else 'cpu'
     WORKERS = 4
     AUGMENT = True
     
-    # НАСТРОЙКИ ДАННЫХ
-    VAL_SPLIT = 0.15  # Меньше валидации для большего обучения
-    RANDOM_STATE = 42
-    NUM_CLASSES = 1
-    CLASS_NAMES = ['person']
-    
     # УЛУЧШЕННЫЕ НАСТРОЙКИ ИНФЕРЕНСА
-    CONFIDENCE_THRESHOLD = 0.31  # Более низкий порог для лучшего recall
-    IOU_THRESHOLD = 0.4
+    CONFIDENCE_THRESHOLD = 0.33 
+    IOU_THRESHOLD = 0.43
     
     # НАСТРОЙКИ ВИЗУАЛИЗАЦИИ
     SHOW_LABELS = True 
@@ -120,7 +114,7 @@ class Config:
 
     @classmethod
     def print_config(cls):
-        print("=== КОНФИГУРАЦИЯ МОДЕЛИ ===")
+        print("Конфигурация")
         for key, value in cls.__dict__.items():
             if not key.startswith('_') and not callable(value):
                 print(f"{key}: {value}")

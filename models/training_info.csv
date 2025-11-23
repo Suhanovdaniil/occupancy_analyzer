@@ -1,0 +1,2 @@
+model,epochs,batch_size,image_size,learning_rate,train_images,val_images,device
+yolov8s.pt,150,8,640,0.001,67,26,0

@@ -1,0 +1,11 @@
+# Важно: Замените старый путь на ваш текущий
+path: /Users/daniilsuhanov/Downloads/occupancy_analyzer/dataset
+
+# Относительные пути к папкам с картинками (оставьте как есть)
+train: images/train
+val: images/val
+test: images/test  # (если есть)
+
+# Классы (оставьте как есть, пример для детекции людей)
+names:
+  0: person
